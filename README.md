@@ -1,4 +1,4 @@
-client-server MERN app that lets you search a database full of recipes based on ingredients you choose.
+client-server MERN app that lets you search a database full of recipes based on ingredients you choose. desktop/mobile responive
 
 start client
 /frontend
