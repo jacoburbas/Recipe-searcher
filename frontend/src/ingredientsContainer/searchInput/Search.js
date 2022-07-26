@@ -1,23 +1,29 @@
 import React from "react";
 import debounce from "lodash.debounce";
+import { serverAddres } from "../../config";
 
-const Search = ({ setItems, focusedItems }) => {
-  const handleChange = debounce((e) => {
+const Search = ({ setItems, chosenItems }) => {
+  const handleInput = debounce((e) => {
     // only letters restricition
     let regex = /[^a-z]/gi;
     e.target.value = e.target.value.replace(regex, "");
 
-    let urlId = e.target.value;
-    if (!urlId) urlId = ":id";
-    fetch(`http://192.168.1.89:5000/api/Ingredients/${urlId}`)
+    const url = new URL(`http://${serverAddres}:5000/api/ingredients`),
+      params = { name: e.target.value };
+
+    Object.keys(params).forEach((key) =>
+      url.searchParams.append(key, params[key])
+    );
+
+    fetch(url)
       .then((res) => res.json())
       .then((json) =>
         setItems(
           json
-            // only show items that arent choosen yet
+            // only show items that arent chosen yet
             .filter(
               (e) =>
-                !focusedItems.find((f) => f.name === e.name && f._id === e._id)
+                !chosenItems.find((f) => f.name === e.name && f._id === e._id)
             )
             .sort((a, b) => (a.name > b.name ? 1 : -1))
         )
@@ -26,16 +32,14 @@ const Search = ({ setItems, focusedItems }) => {
   }, 300);
 
   return (
-    <div className="flex justify-center lg:justify-start ">
-      <div className="inputsearchbox flex items-center  w-3/5 lg:w-1/5 mx-5  py-3 rounded-[15px]  border-solid border-[1px] border-black">
-        <i className="mx-4 text-xl text-black fa-solid fa-magnifying-glass "></i>
-        <input
-          className="inputsearch w-full h-full text-black placeholder:text-black placeholder:text-xs lg:placeholder:text-base bg-transparent outline-none"
-          type="text"
-          placeholder="Search for ingredients..."
-          onChange={handleChange}
-        />
-      </div>
+    <div className="inputsearchbox flex items-center mx-5 py-3 px-5 rounded-[15px] border-solid border-[1px] border-black">
+      <i className="mx-4 text-xl text-black fa-solid fa-magnifying-glass "></i>
+      <input
+        className="inputsearch w-full h-full text-black placeholder:text-black placeholder:text-xs lg:placeholder:text-base bg-transparent outline-none"
+        type="text"
+        placeholder="Filter ingredients..."
+        onChange={handleInput}
+      />
     </div>
   );
 };

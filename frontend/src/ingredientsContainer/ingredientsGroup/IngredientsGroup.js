@@ -7,17 +7,17 @@ const IngredientGroup = ({
   items,
   itemsDidLoad,
   setItems,
-  focusedItems,
-  setFocusedItems,
+  chosenItems,
+  setChosenItems,
 }) => {
   return (
     <div className="lg:h-min grow-0 shrink-0 lg:grow lg:shrink basis-[100%] lg:basis-auto xl:basis-[25%] bg-[rgba(0,0,0,0.32)] mr-2 p-2 rounded last:mr-0 snap-start">
-      <div className="flex w-full items-center  justify-between whitespace-nowrap capitalize m-2 font-bold text-white text-[3vw] lg:text-[1vw] xl:text-[0.8vw]">
+      <div className="flex w-full items-center  justify-between whitespace-nowrap capitalize m-2 font-bold text-white dark:text-white/80 text-[4vw] lg:text-[1vw] xl:text-[0.8vw] transition-colors">
         {type}
         {icons.filter((e) => e.name === type).map((e) => e.icon)}
       </div>
 
-      <div className="flex flex-wrap ">
+      <div className="flex flex-wrap">
         {itemsDidLoad
           ? items
               .filter((e) => e.type === type)
@@ -28,8 +28,8 @@ const IngredientGroup = ({
                   type={e.type ? e.type : ""}
                   items={items}
                   setItems={setItems}
-                  focusedItems={focusedItems}
-                  setFocusedItems={setFocusedItems}
+                  chosenItems={chosenItems}
+                  setChosenItems={setChosenItems}
                   isFocused={false}
                 />
               ))

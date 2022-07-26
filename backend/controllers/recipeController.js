@@ -2,9 +2,10 @@ const asyncHandler = require("express-async-handler");
 const recipe = require("../models/recipeModel");
 
 const getRecipes = asyncHandler(async (req, res) => {
-  const limit = req.query.limit || 10;
+  console.log(req.query);
+  const limit = req.query.limit || 20;
   const skip = parseInt(req.query.skip || 0);
-  const findString = req.query.id.replace(/,/g, "|");
+  const findString = req.query.search.replace(/,/g, "|");
   const recipes = await recipe
     .aggregate([
       // add a weight parameter based of number of ingredients matching searched ingredient
