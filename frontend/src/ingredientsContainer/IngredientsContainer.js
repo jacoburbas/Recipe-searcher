@@ -3,7 +3,6 @@ import Search from "./searchInput/Search";
 import ThemeButton from "./themeButton/ThemeButton";
 import ChosenIngredients from "./chosenIngredients/ChosenIngredients";
 import IngredientGroup from "./ingredientsGroup/IngredientsGroup";
-import { serverAddres } from "../config";
 
 const IngredientsContainer = ({ chosenItems, setChosenItems }) => {
   useEffect(() => {

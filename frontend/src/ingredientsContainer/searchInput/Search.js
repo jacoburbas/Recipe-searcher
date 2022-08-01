@@ -1,6 +1,5 @@
 import React from "react";
 import debounce from "lodash.debounce";
-import { serverAddres } from "../../config";
 
 const Search = ({ setItems, chosenItems }) => {
   const handleInput = debounce((e) => {

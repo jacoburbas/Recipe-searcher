@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import FetchingNotif from "./fetchingNotif/FetchingNotif";
 import Recipe from "./recipe/Recipe";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { serverAddres } from "../config";
 
 const RecipeContainer = ({ chosenItems }) => {
   useEffect(() => {
