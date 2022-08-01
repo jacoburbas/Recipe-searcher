@@ -25,7 +25,7 @@ const RecipeContainer = ({ chosenItems }) => {
   const fetchData = (skip = false) => {
     let like = chosenItems.length ? chosenItems.map((e) => e.name) : "";
 
-    const url = new URL(`https://${serverAddres}:5000/api/recipes`),
+    const url = new URL(`/app/api/recipes`),
       params = skip ? { search: like, skip: fetchSkip } : { search: like };
 
     Object.keys(params).forEach((key) =>

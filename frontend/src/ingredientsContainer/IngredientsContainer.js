@@ -7,7 +7,7 @@ import { serverAddres } from "../config";
 
 const IngredientsContainer = ({ chosenItems, setChosenItems }) => {
   useEffect(() => {
-    const url = new URL(`https://${serverAddres}:5000/api/ingredients`);
+    const url = new URL(`/app/api/ingredients`);
 
     fetch(url)
       .then((res) => res.json())
