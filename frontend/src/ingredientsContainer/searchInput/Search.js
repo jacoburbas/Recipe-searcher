@@ -7,7 +7,9 @@ const Search = ({ setItems, chosenItems }) => {
     let regex = /[^a-z]/gi;
     e.target.value = e.target.value.replace(regex, "");
 
-    const url = new URL(`https://localhost:8080/app/api/ingredients`),
+    const url = new URL(
+        `https://dolphin-app-f28qi.ondigitalocean.app/app/api/ingredients`
+      ),
       params = { name: e.target.value };
 
     Object.keys(params).forEach((key) =>
