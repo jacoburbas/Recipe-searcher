@@ -6,7 +6,9 @@ import IngredientGroup from "./ingredientsGroup/IngredientsGroup";
 
 const IngredientsContainer = ({ chosenItems, setChosenItems }) => {
   useEffect(() => {
-    const url = new URL(`https://${process.env.APP_URL}/app/api/ingredients`);
+    const url = new URL(
+      `https://recipes.kubaurbas.software/app/api/ingredients`
+    );
 
     fetch(url)
       .then((res) => res.json())

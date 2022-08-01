@@ -24,7 +24,7 @@ const RecipeContainer = ({ chosenItems }) => {
   const fetchData = (skip = false) => {
     let like = chosenItems.length ? chosenItems.map((e) => e.name) : "";
 
-    const url = new URL(`https://${process.env.APP_URL}/app/api/recipes`),
+    const url = new URL(`https://recipes.kubaurbas.software/app/api/recipes`),
       params = skip ? { search: like, skip: fetchSkip } : { search: like };
 
     Object.keys(params).forEach((key) =>
