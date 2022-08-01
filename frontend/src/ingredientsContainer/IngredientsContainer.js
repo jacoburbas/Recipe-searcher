@@ -6,7 +6,7 @@ import IngredientGroup from "./ingredientsGroup/IngredientsGroup";
 
 const IngredientsContainer = ({ chosenItems, setChosenItems }) => {
   useEffect(() => {
-    const url = new URL(`/app/api/ingredients`);
+    const url = new URL(`localhost:5000/app/api/ingredients`);
 
     fetch(url)
       .then((res) => res.json())

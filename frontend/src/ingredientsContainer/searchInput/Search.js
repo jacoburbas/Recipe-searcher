@@ -7,7 +7,7 @@ const Search = ({ setItems, chosenItems }) => {
     let regex = /[^a-z]/gi;
     e.target.value = e.target.value.replace(regex, "");
 
-    const url = new URL(`/app/api/ingredients`),
+    const url = new URL(`localhost:5000/app/api/ingredients`),
       params = { name: e.target.value };
 
     Object.keys(params).forEach((key) =>
