@@ -24,9 +24,7 @@ const RecipeContainer = ({ chosenItems }) => {
   const fetchData = (skip = false) => {
     let like = chosenItems.length ? chosenItems.map((e) => e.name) : "";
 
-    const url = new URL(
-        `https://dolphin-app-f28qi.ondigitalocean.app/app/api/recipes`
-      ),
+    const url = new URL(`https://localhost/app/api/recipes`),
       params = skip ? { search: like, skip: fetchSkip } : { search: like };
 
     Object.keys(params).forEach((key) =>

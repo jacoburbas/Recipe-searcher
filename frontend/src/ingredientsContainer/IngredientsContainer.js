@@ -6,9 +6,7 @@ import IngredientGroup from "./ingredientsGroup/IngredientsGroup";
 
 const IngredientsContainer = ({ chosenItems, setChosenItems }) => {
   useEffect(() => {
-    const url = new URL(
-      `https://dolphin-app-f28qi.ondigitalocean.app/app/api/ingredients`
-    );
+    const url = new URL(`https://localhost/app/api/ingredients`);
 
     fetch(url)
       .then((res) => res.json())
